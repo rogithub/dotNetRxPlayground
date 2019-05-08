@@ -8,7 +8,7 @@ namespace Console
         static void Main(string[] args)
         {
             var numbers = new NumbersObservable(5);
-	    var subscription = numbers.Subscribe(new ConsoleObserver<int>("numbers"));
+	    var subscription = numbers.SubscribeConsole("numbers");
         }
     }
 }
