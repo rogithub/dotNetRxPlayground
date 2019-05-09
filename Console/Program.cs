@@ -1,5 +1,7 @@
 ﻿using System;
-
+using System.Reactive.Disposables;
+using System.Collections.Generic;
+using System.Reactive.Linq;
 
 namespace Console
 {
@@ -9,6 +11,11 @@ namespace Console
         {
             var numbers = new NumbersObservable(5);
 	    var subscription = numbers.SubscribeConsole("numbers");
+
+	    IEnumerable<string> names = new []{ "Paola", "Maura", "Corina", "Alejandra" };
+	    IObservable<string> namesObservable = names.ToObservable();
+
+	    namesObservable.SubscribeConsole("names");
         }
     }
 }
